@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main role="main">
+        <div class="container">
+            <div class="row">
+                {% for data in vouchers %}
+                    <div class="discount">
+                            <div class="d_header">
+                                {{ data.program_name }}
+                            </div>
+                            <div class="dates">
+                                <div class="start"><b>starts:</b><br>{{data.startDate|date("m/d/Y")}}</div>
+                                <div class="expire"><b>expires:</b><br>{{data.expiryDate|date("m/d/Y")}}</div>
+                            </div>
+                            <div class="d_body">
+                                <p><b>code:</b> {{data.code}}</p>
+                                <p><b>program ID:</b> {{data.programId}}</p>
+                                <p><b>description:</b> {{data.description}}</p>
+                                <p><b><a href="{{data.destinationUrl}}">Destination URL</a></b></p>
+                                <p><b>discount:</b> {{data.discount}}</p>
+                                <p><b>currency:</b> {{data.currency}}</p>
+                                <p><b>ID:</b> {{data.id}}</p>
+                                <p><b>commission value formatted:</b> {{data.commissionValueFormatted}}</p>
+                            </div>
+                            <div class="d_footer">
+                                <a class="btn btn-success submit" href="#" role="button">Submit discount</a>
+                            </div>
+                        </div>
+                {% endfor %}
+            </div>
+            <hr>
+        </div>
+    </main>
+
+{% endblock %}
