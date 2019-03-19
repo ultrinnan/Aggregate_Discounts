@@ -84,6 +84,12 @@ class Discount
      */
     private $dateFound;
 
+    /**
+     * @ORM\Column(type="boolean", )
+     * @var
+     */
+    private $submitted = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -184,6 +190,14 @@ class Discount
     }
 
     /**
+     * @return mixed
+     */
+    public function getSubmitted()
+    {
+        return $this->submitted;
+    }
+
+    /**
      * @param int $programId
      */
     public function setProgramId(int $programId): void
@@ -272,6 +286,14 @@ class Discount
     }
 
     /**
+     * @param mixed $submitted
+     */
+    public function setSubmitted($submitted): void
+    {
+        $this->submitted = $submitted;
+    }
+
+    /**
      * Gets triggered only on insert
      * @ORM\PrePersist
      */
@@ -301,6 +323,7 @@ class Discount
         $this->setCommissionValueFormatted($discount->getCommissionValueFormatted());
         $this->setValidFromDate($discount->getValidFromDate());
         $this->setExpireDate($discount->getExpireDate());
-        $this->setDateFound($discount->getDateFound());
+        $this->setDateFound(new \DateTime("now"));
+        $this->setSubmitted($discount->getSubmitted());
     }
 }

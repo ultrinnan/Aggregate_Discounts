@@ -48,6 +48,11 @@ class DiscountRepository
         return $this->objectRepository->findAll();
     }
 
+    public function findUnsubmitted(): array
+    {
+        return $this->objectRepository->findBy(['submitted' => false]);
+    }
+
     public function create(Discount $discount): Discount
     {
         $discount->update($discount);

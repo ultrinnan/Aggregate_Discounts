@@ -24,6 +24,7 @@ class AppFixtures extends Fixture
             $discount->setCommissionValueFormatted('Default');
             $discount->setValidFromDate(new \DateTime("now - 7 days"));
             $discount->setExpireDate(new \DateTime("now + 7 days"));
+            $discount->setSubmitted(false);
 
             $manager->persist($discount);
         }
