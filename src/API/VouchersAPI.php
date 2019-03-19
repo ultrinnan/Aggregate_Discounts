@@ -23,7 +23,7 @@ class VouchersAPI
     }
 
     /**
-     * check if this is first request of data
+     * check if this is first request of dataFixtures
      * @return bool
      */
     public function checkFirstVisit()

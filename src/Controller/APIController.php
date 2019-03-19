@@ -17,7 +17,7 @@ class APIController extends AbstractController
         $vouchers = $api->getDiscounts();
 
         return $this->render('default/index.html.twig', [
-           'data' => $vouchers,
+           'dataFixtures' => $vouchers,
         ]);
     }
 }

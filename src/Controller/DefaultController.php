@@ -1,23 +1,38 @@
 <?php
 namespace App\Controller;
 
-use App\API\VouchersAPI;
+use App\Entity\Discount;
+use App\Repository\DiscountRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
     /**
+     * @var DiscountRepository
+     */
+    private $discountRepository;
+
+    public function __construct(DiscountRepository $discountRepository)
+    {
+        $this->discountRepository = $discountRepository;
+    }
+    /**
      * @Route("/")
      */
     public function index()
     {
-        $api = new VouchersAPI();
-
-        $vouchers = $api->getDiscounts();
-
+        $discounts = $this->discountRepository->findAll();
         return $this->render('default/index.html.twig', [
-           'vouchers' => $vouchers,
+           'vouchers' => $discounts,
         ]);
+    }
+
+    /**
+     * reset database and load fixtures for API demo
+     */
+    public function resetData()
+    {
+        //functionality to reset database and load fixtures will be here
     }
 }

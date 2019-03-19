@@ -7,24 +7,23 @@
                 {% for data in vouchers %}
                     <div class="discount">
                             <div class="d_header">
-                                {{ data.program_name }}
+                                {{ data.shop }}
                             </div>
                             <div class="dates">
-                                <div class="start"><b>starts:</b><br>{{data.startDate|date("m/d/Y")}}</div>
-                                <div class="expire"><b>expires:</b><br>{{data.expiryDate|date("m/d/Y")}}</div>
+                                <div class="start"><b>starts:</b><br>{{data.validFromDate|date("m/d/Y")}}</div>
+                                <div class="expire"><b>expires:</b><br>{{data.expireDate|date("m/d/Y")}}</div>
                             </div>
                             <div class="d_body">
                                 <p><b>code:</b> {{data.code}}</p>
-                                <p><b>program ID:</b> {{data.programId}}</p>
-                                <p><b>description:</b> {{data.description}}</p>
-                                <p><b><a href="{{data.destinationUrl}}">Destination URL</a></b></p>
+                                {#<p><b>program ID:</b> {{data.programId}}</p>#}
+                                <p><b>description:</b> {{data.value}}</p>
+                                <p><b><a href="{{data.url}}">Destination URL</a></b></p>
                                 <p><b>discount:</b> {{data.discount}}</p>
                                 <p><b>currency:</b> {{data.currency}}</p>
-                                <p><b>ID:</b> {{data.id}}</p>
                                 <p><b>commission value formatted:</b> {{data.commissionValueFormatted}}</p>
                             </div>
                             <div class="d_footer">
-                                <a class="btn btn-success submit" href="#" role="button">Submit discount</a>
+                                <button class="btn btn-success submit" data-id="{{ data.id }}" role="button">Submit discount</button>
                             </div>
                         </div>
                 {% endfor %}
