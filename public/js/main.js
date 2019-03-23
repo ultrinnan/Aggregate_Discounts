@@ -13,6 +13,8 @@ $(document).ready(function () {
             data: { id: id }
         })
             .done(function() {
+                let counter = $('#counter');
+                counter.text(counter.text() -1);
                 discount.fadeOut();
             });
     });
@@ -34,9 +36,10 @@ $(document).ready(function () {
             method: "POST",
             url: "/check_api",
             dataType: "json",
+            data: { check_api: true }
         })
             .done(function() {
-
+                location.reload();
             });
     });
 });

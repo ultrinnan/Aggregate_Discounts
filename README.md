@@ -18,10 +18,13 @@ To run the project:
     php bin/console doctrine:fixtures:load
     ```
 
-3. run local server to see application in action:
+4. run local server to see application in action:
     
     ```php bin/console server:start```
-
-    or visit http://discounts.fedirko.pro to see live demo
     
-4.  provide detailed feedback :)
+5. API was created as separate module and can be accessed via link *localhost/api*
+
+6. Initial data - 9 discounts. Database can be renewed by clicking the button in menu. When requesting data from API first time, additional cookie will be stored for 5 minutes. If this cookie present - second call to API will be from second file. 
+
+7. Please provide feedback :)
+

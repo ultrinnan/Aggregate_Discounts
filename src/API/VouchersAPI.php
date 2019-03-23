@@ -42,7 +42,7 @@ class VouchersAPI
 
     public function getMockedData($file)
     {
-        $data_file = dirname(__DIR__) . '/../src/API/data/' . $file;
+        $data_file = dirname(__DIR__) . '/../src/API/dataFixtures/' . $file;
         try{
             $data = file_get_contents($data_file);
         } catch (\ErrorException $errorException){

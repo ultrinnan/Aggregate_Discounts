@@ -50,7 +50,7 @@ class DiscountRepository
 
     public function findUnsubmitted(): array
     {
-        return $this->objectRepository->findBy(['submitted' => false]);
+        return $this->objectRepository->findBy(['submitted' => false, ]);
     }
 
     public function create(Discount $discount): Discount
